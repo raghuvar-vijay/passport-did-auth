@@ -174,13 +174,6 @@ export class CacheServerClient {
     return data.service;
   }
 
-  async getDidsWithAcceptedRole(role: string): Promise<string[]> {
-    const { data } = await this.httpClient.get<string[]>(
-      `/claim/did/${role}?accepted=true`
-    );
-    return data;
-  }
-
   async getDidDocument(did: string): Promise<IDIDDocument> {
     const { data } = await this.httpClient.get<IDIDDocument>(
       `/DID/${did}?includeClaims=true`
